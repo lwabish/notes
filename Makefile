@@ -4,6 +4,7 @@ commit=$(shell git rev-parse --short HEAD)
 # tag=$(time)-$(commit)
 tag=$(commit)
 
+.PHONY all: build img install 
 preview:
 	mkdocs serve
 build:
@@ -15,6 +16,5 @@ img:
 	docker rmi $(registry)/notes:$(tag)
 
 install:
-	kubectl config use-context tencent
-	helm upgrade -i -n default lwabish-notes ./chart --set registry=$(registry) --set tag=$(tag)
 	kubectl config use-context home
+	helm upgrade -i -n default lwabish-notes ./chart --set registry=$(registry) --set tag=$(tag)
