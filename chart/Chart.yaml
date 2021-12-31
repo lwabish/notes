@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: "depracated"
+description: A Helm chart for Kubernetes
+name: lwabish-notes
+type: application
+version: 1.0.0
