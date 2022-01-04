@@ -1,5 +1,0 @@
-# linux command cheetsheet
-
-```bash
-```
-

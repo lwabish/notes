@@ -1,4 +1,4 @@
-# kubectl cheetsheet
+# Kubectl
 
 ```shell
 alias k=kubectl
