@@ -1,5 +1,9 @@
 # Ansible
 
+```shell
+alias a='ansible'
+```
+
 ## 模块
 
 ### 连通性测试
@@ -29,6 +33,9 @@ ansible all -m copy -a "src=/opt/images/pause-amd64.tar dest=/root/"
 ```shell
 # 增加新行
 ansible all -m lineinfile -a "dest=/etc/chrony.conf line='allow 192.168.1.0/24'"
+
+# 正则匹配替换
+a all -m lineinfile -a "path=/etc/sysconfig/network-scripts/ifcfg-eth0 regexp='^GATEWAY=' line=GATEWAY=172.16.236.6"
 ```
 
 ### yum包管理
@@ -124,8 +131,10 @@ ansible-playbook push-ssh-keys -e "hosts=主机组名称"
 
 ### 指定部分主机
 
+把命令中的主机组直接替换为主机目标即可
+
 ```bash
-ansible all -i xxx, -m ping
+ansible xxx,yyy -m ping
 ```
 
 ## 参考
