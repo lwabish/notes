@@ -14,5 +14,8 @@ history|grep $keyWord
 # 目标行之后
 history|more +$line
 history|more -$line 
+
+# 后台运行
+nohup $command >> $logFile 2>&1 &
 ```
 
