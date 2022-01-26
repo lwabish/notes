@@ -59,7 +59,7 @@
 7. color schemes
 8. 透明度和blur：22 & 2
 
-### ~~修改系统支持l2tp vpn~~
+### l2tp vpn连接问题
 
 osx 12疑似已经修复了l2tp vpn无法连接问题
 
