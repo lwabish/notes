@@ -9,9 +9,11 @@
 
 ## 全新刷机
 
+1. [下载固件](https://developers.google.com/android/images#flame)
 1. 电脑`brew install android-platform-tools`，手机开usb调试，开机连接电脑，`adb devices`验证无误
 1. `adb reboot bootloader`
-3. 下载出厂镜像`./flash-all`
+3. 解压固件，运行`./flash-all`
+3. 如果不需要root，到此即可停止
 4. 拷贝magisk manager，出厂镜像里的boot.img到手机
 5. 安装magisk manager，手机联网，打开magisk manager，安装magisk，修补镜像
 6. 从download目录把magisk_patched.img拷到电脑
