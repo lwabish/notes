@@ -17,4 +17,4 @@ img:
 
 install:
 	kubectl config use-context home
-	helm upgrade -i -n default lwabish-notes ./chart --set registry=$(registry) --set tag=$(tag)
+	helm upgrade -i -n default notes ./chart --set registry=$(registry) --set tag=$(tag)
