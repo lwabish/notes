@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+    name: notes-route
+spec:
+    hosts:
+    - notes.default.svc.cluster.home
+    http:
+    - name: "notes-default-route"
+      route:
+      - destination:
+          host: notes.default.svc.cluster.home
+          subset: {{ .Chart.AppVersion }}

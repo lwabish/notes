@@ -6,10 +6,12 @@ spec:
   selector:
     matchLabels:
       app: "{{ .Chart.Name }}"
+      version: "{{ .Values.tag }}"
   template:
     metadata:
       labels:
         app: "{{ .Chart.Name }}"
+        version: "{{ .Values.tag }}"
     spec:
       containers:
         - name: "{{ .Chart.Name }}"
