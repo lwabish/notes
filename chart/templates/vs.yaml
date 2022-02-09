@@ -9,5 +9,5 @@ spec:
     - name: "notes-default-route"
       route:
       - destination:
-          host: notes.default.svc.cluster.home
-          subset: {{ .Chart.AppVersion }}
+          host: notes.default.svc.cluster.local
+        #   subset: {{ .Chart.AppVersion }}
