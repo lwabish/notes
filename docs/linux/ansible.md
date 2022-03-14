@@ -9,32 +9,35 @@ alias a='ansible'
 ### 连通性测试
 
 ```bash
-ansible all -m ping
+a all -m ping
 ```
 
 ### shell命令
 
 ```bash
-ansible all -m shell -a "w"
+a all -m shell -a "w"
 ```
 
 ### 文件系统操作
 
 ```bash
 # 创建目录
-ansible all -m file -a "dest=/data/log/kubernetes state=directory"
+a all -m file -a "dest=/data/log/kubernetes state=directory"
 
-# 复制文件，注意：src是指执行ansible的机器上的文件路径
-ansible all -m copy -a "src=/opt/images/pause-amd64.tar dest=/root/"
+# 复制文件，注意：src是指执行a的机器上的文件路径
+a all -m copy -a "src=/opt/images/pause-amd64.tar dest=/root/"
 ```
 
 ### 文件内容编辑
 
 ```shell
 # 增加新行
-ansible all -m lineinfile -a "dest=/etc/chrony.conf line='allow 192.168.1.0/24'"
+a all -m lineinfile -a "path=/etc/chrony.conf line='allow 192.168.1.0/24' state=present"
 
-# 正则匹配替换
+# 文本替换
+a mecd, -m replace -b -a "path=/etc/docker/daemon.json regexp='60020' replace='30443'"
+
+# 正则匹配-替换整行
 a all -m lineinfile -a "path=/etc/sysconfig/network-scripts/ifcfg-eth0 regexp='^GATEWAY=' line=GATEWAY=172.16.236.6"
 ```
 
@@ -42,14 +45,14 @@ a all -m lineinfile -a "path=/etc/sysconfig/network-scripts/ifcfg-eth0 regexp='^
 
 ```shell
 # 安装
-ansible all -m yum -a "name=net-tools state=present"
+a all -m yum -a "name=net-tools state=present"
 ```
 
 ### 定时任务
 
 ```shell
 # 新增
-ansible etcd -m cron -a "name='backup-etcd' job='/usr/bin/sh /k8s/etcd/bin/backup-etcd.sh' minute=30 hour=4"
+a etcd -m cron -a "name='backup-etcd' job='/usr/bin/sh /k8s/etcd/bin/backup-etcd.sh' minute=30 hour=4"
 ```
 
 ## 	预配置
@@ -62,7 +65,7 @@ ansible etcd -m cron -a "name='backup-etcd' job='/usr/bin/sh /k8s/etcd/bin/backu
 
   ```ini
   [组名]
-  domain ansible_user=x ansible_port=22 ansible_ssh_pass="yyyyy"
+  domain a_user=x ansible_port=22 ansible_ssh_pass="yyyyy"
   ip
   domain[1:3]
   
@@ -76,7 +79,7 @@ ansible etcd -m cron -a "name='backup-etcd' job='/usr/bin/sh /k8s/etcd/bin/backu
 
 ```bash
 cat << EOF > trust-ssh-fingerprints
-#!/usr/bin/env ansible-playbook
+#!/usr/bin/env a-playbook
 ---
 - name: accept ssh fingerprint automatically for the first time
   hosts: '{{ hosts }}'
@@ -112,7 +115,7 @@ ansible-playbook trust-ssh-fingerprints -e "hosts=主机组名称"
 ### 批量配置ssh免密登陆
 
 ```bash
-# 在ansible hosts配置里要加上ansible_ssh_pass ansible_user=xxxxxxx
+# 在a hosts配置里要加上a_ssh_pass a_user=xxxxxxx
 # 注意修改里面的三处用户名
 cat << EOF > push-ssh-keys
   - hosts: '{{ hosts }}'
@@ -129,14 +132,14 @@ EOF
 ansible-playbook push-ssh-keys -e "hosts=主机组名称"
 ```
 
-### 指定部分主机
+## 指定部分主机
 
 把命令中的主机组直接替换为主机目标即可
 
 ```bash
-ansible xxx,yyy -m ping
+a xxx,yyy -m ping
 ```
 
 ## 参考
 
-[How to build your inventory — Ansible Documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+[How to build your inventory — a Documentation](https://docs.a.com/a/latest/user_guide/intro_inventory.html)
