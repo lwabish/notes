@@ -1,4 +1,4 @@
-# goland/idea远程调试go程序
+# 远程调试go程序
 
 ## 基本原理
 
@@ -7,7 +7,7 @@
 1. 本地开发完成后，在其他环境运行时程序表现和预期不一致
 2. 本地难以调试，比如kubelet
 
-为了解决这些问题，可以结合使用delve和jetbrain家的IDE，方便地在远程环境运行程序，同时在本地打断点调试。
+为了解决这些问题，可以结合使用delve和jetbrain家的IDE(goland/idea)，方便地在远程环境运行程序，同时在本地打断点调试。
 
 [delve](https://github.com/go-delve/delve)类似于一个cs架构的中间人，在远程环境托管目标程序的二进制执行，同时启动server端；本地的IDE指定delve远程服务的ip:port，即可将远程环境的执行和本地的代码链接起来，完成远程调试。
 
