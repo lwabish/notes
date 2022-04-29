@@ -79,7 +79,7 @@ a etcd -m cron -a "name='backup-etcd' job='/usr/bin/sh /k8s/etcd/bin/backup-etcd
 
 ```bash
 cat << EOF > trust-ssh-fingerprints
-#!/usr/bin/env a-playbook
+#!/usr/bin/env ansible-playbook
 ---
 - name: accept ssh fingerprint automatically for the first time
   hosts: '{{ hosts }}'
@@ -115,7 +115,7 @@ ansible-playbook trust-ssh-fingerprints -e "hosts=主机组名称"
 ### 批量配置ssh免密登陆
 
 ```bash
-# 在a hosts配置里要加上a_ssh_pass a_user=xxxxxxx
+# 在ansible hosts配置里要加上ansible_ssh_pass ansible_user=xxxxxxx
 # 注意修改里面的三处用户名
 cat << EOF > push-ssh-keys
   - hosts: '{{ hosts }}'
