@@ -26,7 +26,7 @@
 - the unarchiver
 - manico
 - sleep control center
-- ccopy
+- ccopy或其他类似剪贴板工具
 
 ### brew
 
