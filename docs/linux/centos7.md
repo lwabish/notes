@@ -17,6 +17,10 @@
 - rpm -ql XXX：包安装的所有文件和目录
 - rpm -qa XXX：是否已安装某包
 
+### yum源
+
+[阿里巴巴开源镜像站-OPSX镜像站-阿里云开发者社区 (aliyun.com)](https://developer.aliyun.com/mirror/)
+
 ## 基础知识
 
 - EPEL：Extra Packages for Enterprise Linux
