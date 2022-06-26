@@ -17,5 +17,10 @@ history|more -$line
 
 # 后台运行
 nohup $command >> $logFile 2>&1 &
+
+
+# journalctl
+journalctl -u kubelet --since "2022-06-01 18:00:00"
+journalctl -u kubelet -f 
 ```
 

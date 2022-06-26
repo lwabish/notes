@@ -6,19 +6,17 @@
 - rsa秘钥
 - 检查所有git仓库，是否已经push
 - 检查${HOME}目录，注意.开头的隐藏目录
+- 确认群晖cloud drive文件均已同步
 
 ## 初始化
 
 ### 基础工具
 
-- mellow & config
-
+- clone配置文件仓库
+- clashX，软链clashX配置文件
 - brew
-
-- ssh key（私钥600权限，其他644）,ssh配置
-
+- ssh key（私钥600权限，其他644）,软链ssh client配置文件
 - 登录iCloud & appStore
-- clone配置文件仓库，重新软链配置文件
 
 ### app store
 
@@ -26,7 +24,7 @@
 - the unarchiver
 - manico
 - sleep control center
-- ccopy或其他类似剪贴板工具
+- pastenow
 
 ### brew
 
