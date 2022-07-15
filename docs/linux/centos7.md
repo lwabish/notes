@@ -16,10 +16,24 @@
 
 - rpm -ql XXX：包安装的所有文件和目录
 - rpm -qa XXX：是否已安装某包
+- rpm -ivh *.rpm：离线安装包
 
 ### yum源
 
 [阿里巴巴开源镜像站-OPSX镜像站-阿里云开发者社区 (aliyun.com)](https://developer.aliyun.com/mirror/)
+
+### 快速获取rpm包并离线安装
+
+```bash
+docker run --rm -it -v $HOME/Desktop/:/data centos:7 bash
+
+# 在centos容器里
+cd /data
+yum --downloadonly --downloaddir=./ install xxxxx
+
+# 将rpm包传送到目标机器后
+rpm -ivh *.rpm
+```
 
 ## 基础知识
 
