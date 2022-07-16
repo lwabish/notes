@@ -5,6 +5,10 @@ commit=$(shell git rev-parse --short HEAD)
 tag=$(commit)
 
 .PHONY all: build img install 
+
+init:
+	pip install mkdocs
+	pip install mkdocs-material
 preview:
 	mkdocs serve
 build:
