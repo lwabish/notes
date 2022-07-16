@@ -42,11 +42,7 @@
 ### 终端
 
 1. oh-my-zsh/p10k/zsh插件：`mac/scripts/install_zsh_stack.sh`
-2. iterm2 color schemes
-   - nerd font
-   - 字号：17
-   - color scheme：tango dark
-   - 透明度：22
+2. iterm2配置：nerd font、字号：17、color scheme：tango dark、透明度：22
 3. [lrzsz配置](https://github.com/kuoruan/iterm2-zmodem)
 
 
